@@ -1,0 +1,85 @@
+body{
+    background-color: #eaffc7;
+    font-family: 'Poppins', sans-serif;
+    }
+    
+    header{
+        display: flex;
+        flex-direction: row;
+        background-color: #c4ff61;
+        border-bottom: 3px solid black;
+    
+    }
+    
+    footer{
+        background-color: #c4ff61;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-top: solid black 3px;
+        position: relative;
+    }
+     
+    main{
+        margin: 30px;
+    }
+    
+    .nav{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 1000px;
+        margin-top: 40px;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    
+    .form{
+        margin-top: 40px;
+    
+    }
+    
+    .section{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between; 
+        background-color: #1a1a1a;
+        padding: 20px;
+        color: white;
+    }
+    
+    .caja{
+        width: 200px;
+        padding-bottom: 30px;
+    }
+    
+    .imgB{
+        height: 250px;
+        width: 190px;
+    }
+    
+    h3{
+        border-bottom: 3px solid #c4ff61;
+    }
+    
+    .titulos{
+        margin-bottom: 25px;
+        color: #1a1a1a;
+    }
+    .pelPopulares{
+        margin: 30px 0px 15px 0px;
+    }
+    
+    .foot{
+        padding: 5px 20px 5px 20px;
+    }
+    
+    p{
+        font-family: 'Archivo', sans-serif;
+    }
+    
