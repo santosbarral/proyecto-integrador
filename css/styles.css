@@ -7,8 +7,8 @@ body{
         display: flex;
         flex-direction: row;
         background-color: #c4ff61;
-        border-bottom: 3px solid black;
-        border-left: 3px solid black;
+        border: solid black 4px;
+
     }
     
     footer{
