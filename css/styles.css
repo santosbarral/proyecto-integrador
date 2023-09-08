@@ -8,7 +8,7 @@ body{
         flex-direction: row;
         background-color: #c4ff61;
         border-bottom: 3px solid black;
-    
+        border-top: #1a1a1a solid 3px;
     }
     
     footer{
@@ -83,3 +83,16 @@ body{
         font-family: 'Archivo', sans-serif;
     }
     
+    .categ{
+        background-color: #1a1a1a;
+        padding: 10px 30px 0px 30px;
+        color: white;
+    }
+
+    .pelCateg{
+        margin: 10px 0px 15px 0px;
+    }
+
+    .lineaVerde{
+        border-bottom: #c4ff61 solid 3px;
+    }
