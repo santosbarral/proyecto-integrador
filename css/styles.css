@@ -7,7 +7,7 @@ header{
     display: flex;
     flex-direction: row;
     background-color: #c4ff61;
-    border-bottom: solid black 4px;
+    border: #1a1a1a 3px solid;
 
     }
     
@@ -30,12 +30,16 @@ footer{
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-        width: 1000px;
+        width: 80vw;
         margin-top: 40px;
     }
     
-.li{
+li{
     list-style: none;
+    display: flex;
+    flex-direction: row;
+
+
 }
 
     a{
@@ -109,5 +113,17 @@ footer{
     @media (max-width: 420px){
         header{
             flex-direction: column;
-            }
+            max-height: 50vw;
+        }
+        li{
+            flex-direction: column;
+        }
+        .imgB{
+            max-height: 200px;
+            max-width: 150px;
+        }
+        p{
+            display: none;
+        }
+
         }
