@@ -13,17 +13,19 @@
 <body>
 
     <header>
-        <div> <img src="./img/logo.png" alt="logo" height="100px"> </div>
+        <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px"> </div>
         
         <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="favoritos.html">Favoritos</a>
-            <a href="generos.html">GÉNEROS</a>
-            <a href="novedades.html">Novedades</a>
-            <a href="contacto.html">Contacto</a>
+            <li>
+            <ul><a href="index.html">Home</a></ul>
+            <ul><a href="favoritos.html">Favoritos</a></ul>
+            <ul><a href="generos.html">GÉNEROS</a></ul>
+            <ul><a href="novedades.html">Novedades</a></ul>
+            <ul><a href="contacto.html">Contacto</a></ul>
+        </li>
         </nav>
     
-        <form action="resultado-busqueda.html" class="form">
+        <form action="pelicula" class="form">
             <input type="search">
             <button>Buscar</button>
         </form>
@@ -31,9 +33,10 @@
 
 <main>
 
+<section>
 <h2>Géneros:</h2>
-<section class="categ marginGenero">
-    <h2 class="lineaVerde">Peliculas de acción</h2>
+<div class="categ marginGenero">
+    <h2 class="lineaVerde">Ver acción</h2>
 
     <div class="pelPopulares section">
     
@@ -66,9 +69,9 @@
         <h3>Oppenheimer</h3>
         <p>El físico J Robert Oppenheimer trabaja con un equipo de científicos durante el Proyecto Manhattan, que condujo al desarrollo de la bomba atómica.</p>
     </div>
-</section>
+</div>
 
-    <section class="categ marginGenero">
+    <div class="categ marginGenero">
         <h2 class="lineaVerde">Ver comedia:</h2>
     
         <div class="pelPopulares section">
@@ -96,8 +99,8 @@
                 <h3>Brooklyn 99</h3>
                 <p>Los detectives Jake Peralta, Amy Santiago, Rosa Diaz, Charles Boyle y el sargento Terry Jeffords forman una simpática y poco convencional brigada.</p>
             </div>
-
-</div>
+        </div>
+    </div>
 </section>
 
 </main>

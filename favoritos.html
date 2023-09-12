@@ -13,25 +13,27 @@
 <body>
 
     <header>
-        <div> <img src="./img/logo.png" alt="logo" height="100px"> </div>
+        <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px"> </div>
         
         <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="favoritos.html">FAVORITOS</a>
-            <a href="generos.html">Géneros</a>
-            <a href="novedades.html">Novedades</a>
-            <a href="contacto.html">Contacto</a>
+            <li>
+            <ul><a href="index.html">Home</a></ul>
+            <ul><a href="favoritos.html">FAVORITOS</a></ul>
+            <ul><a href="generos.html">Géneros</a></ul>
+            <ul><a href="novedades.html">Novedades</a></ul>
+            <ul><a href="contacto.html">Contacto</a></ul>
+        </li>
         </nav>
     
-        <form action="resultado-busqueda.html" class="form">
+        <form action="pelicula" class="form">
             <input type="search">
             <button>Buscar</button>
         </form>
     </header>
-
 <main>
 
-<h2 class="titulos">Favoritos:</h2>
+<section>
+    <h2 class="titulos">Favoritos:</h2>
 <div class="pelPopulares section">
     
     <div class="caja">
@@ -63,6 +65,7 @@
         <h3>Oppenheimer</h3>
         <p>El físico J Robert Oppenheimer trabaja con un equipo de científicos durante el Proyecto Manhattan, que condujo al desarrollo de la bomba atómica.</p>
     </div>
+</section>
 
 </main>
 
