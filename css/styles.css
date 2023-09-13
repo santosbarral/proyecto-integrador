@@ -145,11 +145,18 @@ p{
 
     header{
         flex-direction: column;
-        max-height: auto;
+        max-width: none;
+        max-height: none;
+        padding: 2px;
+
     }
 
     .liNav{
         flex-direction: column;
+        padding: 2px;
+        border: 1px;
+        margin: 1px;
+        align-items: center;
     }
 
     .nav{
@@ -164,7 +171,6 @@ p{
     .imgB{
         max-height: 200px;
         max-width: 150px;
-        align-items: center;
     }
 
     form{
