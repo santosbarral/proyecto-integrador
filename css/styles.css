@@ -128,7 +128,7 @@ p{
     width: px;
 }
 
-@media (max-width: 420px){
+@media (max-width: 500px){
     body{
         background-color: #1a1a1a;
         color: white;
@@ -145,18 +145,21 @@ p{
 
     header{
         flex-direction: column;
-        max-width: none;
-        max-height: none;
+        max-height: 42vh;
         padding: 2px;
 
     }
 
     .liNav{
-        flex-direction: column;
-        padding: 2px;
-        border: 1px;
-        margin: 1px;
+        flex-wrap: wrap;
+        justify-content:space-around;
+        flex-direction: row;
         align-items: center;
+        height: 60px;
+    }
+
+    a{
+        font-size:smaller;
     }
 
     .nav{
@@ -168,6 +171,10 @@ p{
         align-self: center;
     }
 
+    .logoResp{
+        height: 85px;
+    }
+
     .imgB{
         max-height: 200px;
         max-width: 150px;
@@ -176,7 +183,9 @@ p{
     form{
         align-self: center;
         margin: 0px 0px 15px 0px;
-    }
+        height: 30vh;  
+        padding-top: 15px;
+      }
 
     p{
         display: none;
