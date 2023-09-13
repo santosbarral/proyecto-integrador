@@ -148,7 +148,7 @@ p{
         max-height: auto;
     }
 
-    li{
+    .liNav{
         flex-direction: column;
     }
 
@@ -174,5 +174,20 @@ p{
 
     p{
         display: none;
+    }
+
+    .contacto{
+        flex-direction: column;
+        width: 80vh;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .mapa{
+        height: fit-content;
+        width: fit-content;
+        margin: 15px 10px 10px 10px;
     }
 }
