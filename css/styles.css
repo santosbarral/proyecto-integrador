@@ -3,96 +3,206 @@ body{
     font-family: 'Poppins', sans-serif;
     }
     
-    header{
-        display: flex;
-        flex-direction: row;
-        background-color: #c4ff61;
-        border-bottom: 3px solid black;
-        border-left: 3px solid black;
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: #c4ff61;
+    border: #1a1a1a 3px solid;
+
     }
     
-    footer{
-        background-color: #c4ff61;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        border-top: solid black 3px;
-        position: relative;
-    }
+footer{
+    background-color: #c4ff61;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top: solid black 3px;
+
+}
      
+main{
+    margin: 30px;
+}
+    
+.nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 80vw;
+    margin-top: 25px;
+}
+    
+.liNav{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+a{
+    text-decoration: none;
+}
+    
+.form{
+    margin-top: 40px;
+    
+}
+    
+.section{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between; 
+    background-color: #1a1a1a;
+    padding: 20px 20px 5px 20px;
+    color: white;
+}
+    
+.caja{
+    width: 200px;
+    padding-bottom: 30px;
+}
+    
+.imgB{
+    height: 250px;
+    width: 190px;
+}
+    
+h3{
+    border-bottom: 3px solid #c4ff61;
+}
+    
+.titulos{
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+.pelPopulares{
+    margin: 30px 0px 15px 0px;
+}
+    
+.foot{
+    padding: 5px 20px 5px 20px;
+}
+    
+p{
+    font-family: 'Archivo', sans-serif;
+}
+
+.categ{
+    background-color: #1a1a1a;
+    padding: 10px 30px 0px 30px;
+    color: white;
+}
+
+.pelCateg{
+    margin: 10px 0px 15px 0px;
+}
+
+.lineaVerde{
+    border-bottom: #c4ff61 solid 3px;
+}
+
+.marginGenero{
+    margin-bottom: 40px;
+}
+
+
+.contacto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;    
+    }
+
+.justify{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.nombres{
+    width: 20vw;
+}
+
+.card{
+    width: px;
+}
+
+@media (max-width: 500px){
+    body{
+        background-color: #1a1a1a;
+        color: white;
+    }
+
     main{
-        margin: 30px;
+        border: #eaffc7 dotted 2px;
+        padding: 10px;
     }
-    
-    .nav{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        width: 1000px;
-        margin-top: 40px;
-    }
-    
-    a{
-        text-decoration: none;
-    }
-    
-    .form{
-        margin-top: 40px;
-    
-    }
-    
-    .section{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between; 
-        background-color: #1a1a1a;
-        padding: 20px;
-        color: white;
-    }
-    
-    .caja{
-        width: 200px;
-        padding-bottom: 30px;
-    }
-    
-    .imgB{
-        height: 250px;
-        width: 190px;
-    }
-    
-    h3{
-        border-bottom: 3px solid #c4ff61;
-    }
-    
+
     .titulos{
-        margin-bottom: 25px;
-        color: #1a1a1a;
-    }
-    .pelPopulares{
-        margin: 30px 0px 15px 0px;
-    }
-    
-    .foot{
-        padding: 5px 20px 5px 20px;
-    }
-    
-    p{
-        font-family: 'Archivo', sans-serif;
-    }
-    
-    .categ{
-        background-color: #1a1a1a;
-        padding: 10px 30px 0px 30px;
         color: white;
     }
 
-    .pelCateg{
-        margin: 10px 0px 15px 0px;
+    header{
+        flex-direction: column;
+        max-height: 42vh;
+        padding: 2px;
+
     }
 
-    .lineaVerde{
-        border-bottom: #c4ff61 solid 3px;
+    .liNav{
+        flex-wrap: wrap;
+        justify-content:space-around;
+        flex-direction: row;
+        align-items: center;
+        height: 60px;
     }
+
+    a{
+        font-size:smaller;
+    }
+
+    .nav{
+        margin-top: 0px;
+        align-items: center;
+    }
+
+    .logo{
+        align-self: center;
+    }
+
+    .logoResp{
+        height: 85px;
+    }
+
+    .imgB{
+        max-height: 200px;
+        max-width: 150px;
+    }
+
+    form{
+        align-self: center;
+        margin: 0px 0px 15px 0px;
+        height: 30vh;  
+        padding-top: 15px;
+      }
+
+    p{
+        display: none;
+    }
+
+    .contacto{
+        flex-direction: column;
+        width: 80vh;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .mapa{
+        height: fit-content;
+        width: fit-content;
+        margin: 15px 10px 10px 10px;
+    }
+}
