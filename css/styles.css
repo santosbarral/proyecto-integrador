@@ -107,6 +107,19 @@ p{
     margin-bottom: 40px;
 }
 
+.listaGeneros{
+    background-color: #1a1a1a;
+    padding: 15px 25px 15px 25px;
+    margin: 25px;
+    color: white;
+    list-style: none;
+    width: 40vw;
+}
+
+.aGeneros{
+    text-decoration:none; 
+    color:white;
+}
 
 .contacto{
     display: flex;
@@ -145,21 +158,14 @@ p{
 
     header{
         flex-direction: column;
-        max-height: 42vh;
-        padding: 2px;
-
+        max-height: 35vh;
     }
 
     .liNav{
         flex-wrap: wrap;
-        justify-content:space-around;
-        flex-direction: row;
-        align-items: center;
-        height: 60px;
-    }
-
-    a{
-        font-size:smaller;
+        justify-content: center;
+        font-size: x-small;
+  
     }
 
     .nav{
@@ -180,12 +186,11 @@ p{
         max-width: 150px;
     }
 
-    form{
+    .form{
         align-self: center;
-        margin: 0px 0px 15px 0px;
-        height: 30vh;  
-        padding-top: 15px;
-      }
+        margin: 15px 0px 15px 0px;
+
+    }
 
     p{
         display: none;
@@ -204,5 +209,9 @@ p{
         height: fit-content;
         width: fit-content;
         margin: 15px 10px 10px 10px;
+    }
+
+    .justify{
+        flex-direction: column;
     }
 }
