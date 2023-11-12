@@ -13,12 +13,18 @@ header{
     
 footer{
     background-color: #c4ff61;
+    border-top: solid black 3px;
+}
+
+.nombresFooter{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    border-top: solid black 3px;
+}
 
+#logoTMDB{
+    
 }
      
 main{
@@ -72,12 +78,17 @@ a{
 h3{
     border-bottom: 3px solid #c4ff61;
 }
+
+.titulo{
+    border-bottom: 3px solid #c4ff61;
+    max-width: 210px;
+}
     
 .titulos{
     margin-bottom: 25px;
     color: #1a1a1a;
 }
-.pelPopulares{
+#pelPopulares{
     margin: 30px 0px 15px 0px;
 }
     
