@@ -4,7 +4,6 @@ let cargarPeliculas = async () => {
         let datos = await respuesta.json();
         let peliculas = '';
 
-        // Limitar a un máximo de 8 películas
         datos.results.slice(0, 12).forEach((pelicula, index) => {
             peliculas += `
                 <div class="pelicula">
@@ -30,7 +29,7 @@ let cargarSeries = async () => {
         let datos = await respuesta.json();
         let series = '';
 
-        // Limitar a un máximo de 8 películas
+     
         datos.results.slice(0, 12).forEach((serie, index) => {
             series += `
                 <div class="pelicula">
@@ -55,7 +54,6 @@ let cargarMejorCalificadas = async () => {
         let datos = await respuesta.json();
         let peliculas = '';
 
-        // Limitar a un máximo de 8 películas
         datos.results.slice(0, 12).forEach((pelicula, index) => {
             peliculas += `
                 <div class="pelicula">
