@@ -1,6 +1,6 @@
 let TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
 
-let API_KEY = 'clave_de_api';
+let API_KEY = '/genre/movie/list'
 
 let MOVIE_GENRES_ENDPOINT = '/genre/movie/list';
 
