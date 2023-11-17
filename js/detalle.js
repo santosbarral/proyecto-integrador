@@ -1,9 +1,11 @@
+// detalles.js
+
 let APIKey = "aad4ccb8efdd15fad341576d3301e95e";
 
 let cargarDetalle = async (id, tipo) => {
     try {
         let endpoint = '';
-        
+
         if (tipo === 'pelicula') {
             endpoint = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}`;
         } else if (tipo === 'serie') {
@@ -29,6 +31,18 @@ let cargarDetalle = async (id, tipo) => {
         `;
 
         document.getElementById('detallePelicula').innerHTML = detalle;
+
+        let botonAgregarFavorito = document.createElement('button');
+        botonAgregarFavorito.textContent = 'Agregar a favoritos';
+        botonAgregarFavorito.classList.add('botonFavorito'); // Añade una clase para el estilo si es necesario
+
+        botonAgregarFavorito.addEventListener('click', () => {
+            agregarAFavoritos(datos);
+            alert('Película agregada a favoritos'); // Muestra un mensaje para confirmar la acción
+        });
+
+        document.getElementById('detallePelicula').appendChild(botonAgregarFavorito);
+
     } catch (error) {
         console.error(error);
     }
@@ -39,3 +53,10 @@ let id = urlParams.get('id');
 let tipo = urlParams.get('tipo');
 
 cargarDetalle(id, tipo);
+
+// Función para agregar una película a favoritos
+const agregarAFavoritos = (datos) => {
+    let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    favoritos.push(datos);
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+};

@@ -3,83 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado busqueda</title>
-
+    <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px" class="logoResp"> </div>
-        
-        <nav class="nav">
-            <li class="liNav">
-            <ul><a href="index.html" class="aHeader">HOME</a></ul>
-            <ul><a href="favoritos.html" class="aHeader">FAVORITOS</a></ul>
-            <ul><a href="generos.html" class="aHeader">Géneros</a></ul>
-            <ul><a href="ver-generos.html" class="aHeader">Ver géneros</a></ul>
+<header>
+    <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px" class="logoResp"> </div>
     
-        </li>
-        </nav>
+    <nav class="nav">
+        <li class="liNav">
+        <ul><a href="index.html" class="aHeader">HOME</a></ul>
+        <ul><a href="favoritos.html" class="aHeader">Favoritos</a></ul>
+        <ul><a href="generos.html" class="aHeader">Géneros</a></ul>
+        <ul><a href="ver-generos.html" class="aHeader">Ver géneros</a></ul>
+
+    </li>
+    </nav>
+
+    <form action="resultado-busqueda.html" method="get" class="form busqueda">
+        <button type="submit" class="bot"> Buscar películas y series</button>
+    </form>
+</header>
+
+    <main>
+        <section>
+            <h2 class="titulos">Favoritos:</h2>
+            <div class="pelPopulares section" id="favoritosContainer">
+            
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="nombresFooter">
+            <div class="foot"><p class="p">Bautista Lucini </p></div>
+            <div  class="foot"><p class="p">Santos Barral </p></div>
+            <div  class="foot"><p class="p">Federico Basavilbaso </p></div>
+        </section>
     
-        <form action="resultado-busqueda.html" method="get" class="form busqueda">
-            <button type="submit" class="bot"> Buscar películas y series</button>
-        </form>
-    </header>
-<main>
+        <img src="./img/blue_long.svg" alt="logo TMDB" class="logoTMDB">
+    </footer>
 
-<section>
-    <h2 class="titulos">Favoritos:</h2>
-<div class="pelPopulares section">
     
-    <div class="caja">
-        <img src="./img/creed.jpg" alt="img1" class="imgB">
-        <h3>Creed III</h3>
-        <p>Adonis Creed, aún dominando el mundo del boxeo, prospera en su carrera y en su vida familiar, pero un amigo de la infancia y antiguo prodigio del boxeo reaparece tras salir de la cárcel y está ansioso por demostrar que merece otra oportunidad.</p>
-    </div>
-
-    <div class="caja">
-        <img src="./img/whale.jpg" alt="img1" class="imgB">
-        <h3>The Wale</h3>
-        <p>Un profesor de inglés, un tipo solitario que sufre obesidad mórbida, intenta restablecer el contacto con su hija en busca de perdón.</p>
-    </div>
-
-    <div class="caja">
-        <img src="./img/argentina.jpeg" alt="img1" class="imgB">
-        <h3>Argentina 1985</h3>
-        <p>Durante la década de 1980, un grupo de abogados investiga y lleva a juicio a los responsables de la dictadura cívico-militar argentina.</p>
-    </div>
-
-    <div class="caja">
-        <img src="./img/sof.jpeg" alt="img1" class="imgB">
-        <h3>Sound of freedom</h3>
-        <p>Un ex agente federal se embarca en una peligrosa misión para salvar a una niña de unos despiadados traficantes de menores. Se le acaba el tiempo y se adentra en la selva colombiana, arriesgando su vida para liberarla de un destino peor que la muerte.</p>
-    </div>
-
-    <div class="caja">
-        <img src="./img/op.jpg" alt="img1" class="imgB">
-        <h3>Oppenheimer</h3>
-        <p>El físico J Robert Oppenheimer trabaja con un equipo de científicos durante el Proyecto Manhattan, que condujo al desarrollo de la bomba atómica.</p>
-    </div>
-</section>
-
-</main>
-
-<footer>
-    <section class="nombresFooter">
-        <div class="foot"><p class="p">Bautista Lucini </p></div>
-        <div  class="foot"><p class="p">Santos Barral </p></div>
-        <div  class="foot"><p class="p">Federico Basavilbaso </p></div>
-    </section>
-
-    <img src="./img/blue_long.svg" alt="logo TMDB" class="logoTMDB">
-
-
-</footer>
-
-<script src="./js/index.js"></script>
-
+    <script src="./js/favoritos.js"></script>
 </body>
 </html>

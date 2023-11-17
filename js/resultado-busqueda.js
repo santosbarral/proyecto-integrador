@@ -3,6 +3,7 @@ let BASE_URL = 'https://api.themoviedb.org/3/search/movie';
 
 let searchBox = document.getElementById('search-box');
 let resultsContainer = document.getElementById('results');
+let searchResultMessage = document.getElementById('searchResultMessage');
 
 searchBox.addEventListener('keyup', function(event) {
   let searchTerm = event.target.value;
@@ -11,28 +12,32 @@ searchBox.addEventListener('keyup', function(event) {
     searchMovies(searchTerm);
   } else {
     resultsContainer.innerHTML = ''; 
+    searchResultMessage.innerText = 'Resultados de búsqueda para:';
   }
 });
 
 async function searchMovies(query) {
   let url = `${BASE_URL}?api_key=${API_KEY}&query=${query}`;
-  
+
   try {
     let response = await fetch(url);
     let data = await response.json();
-    displayResults(data.results);
+    displayResults(data.results, query);
   } catch (error) {
     console.error('Error al obtener datos:', error);
   }
 }
 
-function displayResults(movies) {
+function displayResults(movies, searchTerm) {
   resultsContainer.innerHTML = '';
 
   if (movies.length === 0) {
     resultsContainer.innerHTML = '<p>No se encontraron películas</p>';
+    searchResultMessage.innerText = `Resultados de búsqueda para: "${searchTerm}"`;
     return;
   }
+
+  searchResultMessage.innerText = `Resultados de búsqueda para: "${searchTerm}"`;
 
   movies.forEach(movie => {
     let movieTitle = movie.title;
