@@ -2,20 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TMDb Genres</title>
+  <title>Genres</title>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Genres for Movies</h1>
-  <ul id="movieGenres"></ul>
-  
-  <h1>Genres for TV Series</h1>
-  <ul id="tvGenres"></ul>
-  
-  <h1>Selected Genre</h1>
-  <div id="selectedGenre"></div>
-  
-  <h1>Genre Details</h1>
-  <div id="genreDetails"></div>
+
+    <header>
+        <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px" class="logoResp"> </div>
+        
+        <nav class="nav">
+            <li class="liNav">
+                <ul><a href="index.html" class="aHeader">Home</a></ul>
+                <ul><a href="favoritos.html" class="aHeader">Favoritos</a></ul>
+                <ul><a href="generos.html" class="aHeader">GÉNEROS</a></ul>
+                <ul><a href="ver-generos.html" class="aHeader">Ver géneros</a></ul>
+            </li>
+        </nav>
+    
+        <form action="resultado-busqueda.html" method="get" class="form busqueda">
+            <button type="submit" class="bot"> Buscar películas y series</button>
+        </form>
+    </header>
+
+    <section class="listadosGeneros justify section">
+        <div>
+            <h3>Genros de películas</h3>
+            <ul id="movieGenres"></ul>
+        </div>
+        
+        <div>
+            <h3>Genros TV</h3>
+            <ul id="tvGenres"></ul>
+        </div>
+    </section>
+
+    <section class="flexColumna" >
+        <div>
+            <h3>Género </h3>
+            <div id="selectedGenre"></div>
+        </div>
+    
+        <div>
+            <h3>Ver género</h3>
+            <div id="genreDetails"></div>
+        </div>
+    </section>
+
+
+
+
   
   <script src="js/generos.js"></script>
 </body>
