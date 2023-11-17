@@ -1,20 +1,69 @@
-let TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
+let cargarGenerosPeliculas = async () => {
+  try {
+      let APIKey = "aad4ccb8efdd15fad341576d3301e95e"
+      let tipo = "pelicula"
+      let respuesta = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKey}`);
+      let datos = await respuesta.json();
+      let generos = '';
 
-let API_KEY = 1173214,cf5e2ac8f2c0ac1c242d0ec8a;
+      datos.results.slice(0, 19).forEach((genero, index) => {
+          generos += `
+              <li> ${genero.genre} </li>                
+          `;
+      });
 
-let MOVIE_GENRES_ENDPOINT = '/genre/movie/list';
+      document.getElementById('listaPeliculas').innerHTML = peliculas;
 
-let SERIES_GENRES_ENDPOINT = '/genre/series/list';
+      let generosDOM = document.querySelectorAll('.genero');
 
-async function obtenerGenerosPeliculas() {
-    try {
-        let response = await fetch(`${'https://api.themoviedb.org/3'}${'/genre/movie/list'}?api_key=$1173214,cf5e2ac8f2c0ac1c242d0ec8a{}`); 
-        let data = await response.json();
-        return data.genres;
-    } catch (error) {
-        console.error('Error al obtener géneros de películas:', error);
-        return [];
-    }
+      generosDOM.forEach(function(genero) {
+          genero.addEventListener('click', function() {
+              let id = genero.getAttribute('data-id');
+              let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
+              window.location.href = detalleURL;
+          });
+      });
+
+  } catch (error) {
+      console.log(error);
+  }
 }
 
 
+
+let cargarGenerosSeries = async () => {
+  try {
+      let APIKey = "aad4ccb8efdd15fad341576d3301e95e"
+      let tipo = Serie
+      let respuesta = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKey}`);
+      let datos = await respuesta.json();
+      let generos = '';
+
+      datos.results.slice(0, 19).forEach((genero, index) => {
+          generos += `
+              <li> ${genero.genre} </li>                
+          `;
+      });
+
+      document.getElementById('listaSeries').innerHTML = series;
+
+      let generosDOM = document.querySelectorAll('.genero');
+
+      //seguir mañana
+
+      generosDOM.forEach(function(genero) {
+          genero.addEventListener('click', function() {
+              let id = genero.getAttribute('data-id');
+              let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
+              window.location.href = detalleURL;
+          });
+      });
+
+  } catch (error) {
+      console.log(error);
+  }
+}
+
+
+cargarGenerosPeliculas()
+cargarGenerosSeries()
