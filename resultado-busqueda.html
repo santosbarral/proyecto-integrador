@@ -25,15 +25,22 @@
         </li>
         </nav>
     
-        <form action="resultado-busqueda.html" class="form">
-            <input type="search">
-            <button>Buscar</button>
+        <form action="resultado-busqueda.html" method="get" class="form busqueda">
+            <input type="text" name="busqueda" value="" placeholder="¿Qué ver hoy?" size="28">
+            <select id="criterio" name="criterio" >
+                <option value="all">All</option>
+                <option value="peliculas">Películas</option>
+                <option value="series">Series</option>
+              </select>
+            <button type="submit"> Buscar </button>
         </form>
+
     </header>
 
 <main>
 
-<h2>Resultados de busqueda para ...:</h2>
+<h2>Resultados de busqueda para `${busqueda}`:</h2>
+
 
 <section id="resultadoBusqueda">
 
@@ -55,7 +62,7 @@
 
 </footer>
 
-<script src="./js/index.js"></script>
+<script src="./js/resultado-busqueda.js"></script>
 
 </body>
 </html>
