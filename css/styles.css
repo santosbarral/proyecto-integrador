@@ -248,12 +248,17 @@ a{
   transition: background-color 0.3s ease;
 }
 
+#movieGenres li a,
+#tvGenres li a{
+    color: #333;
+  background-color: #ccc;
+}
+
 #movieGenres li a:hover,
 #tvGenres li a:hover {
   background-color: #f0f0f0;
 }
 
-/* Estilos para la sección de detalles de género */
 #genreDetails {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -279,6 +284,12 @@ a{
   border-radius: 3px;
 }
 
+
+.cajaPelicula{
+    background-color: #1a1a1a;
+    color: #ccc;
+    border: #c4ff61 4px solid;
+}
 
 
 

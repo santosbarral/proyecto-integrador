@@ -29,7 +29,8 @@ function displayGenreDetails(genreDetails, genreName) {
   } else {
     genreDetails.forEach(detail => {
       let movieElement = document.createElement('div');
-      let movieTitle = document.createElement('p');
+      movieElement.classList.add('cajaPelicula');
+      let movieTitle = document.createElement('h3');
       movieTitle.textContent = detail.title;
       movieElement.appendChild(movieTitle);
 
