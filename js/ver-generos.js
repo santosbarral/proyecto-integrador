@@ -23,7 +23,7 @@ function displayGenreDetails(genreDetails, genreName) {
   genreDetailsElement.innerHTML = '';
 
   if (genreDetails.length === 0) {
-    const errorParagraph = document.createElement('p');
+    let errorParagraph = document.createElement('p');
     errorParagraph.textContent = `No movies found for ${genreName}.`;
     genreDetailsElement.appendChild(errorParagraph);
   } else {
@@ -40,9 +40,11 @@ function displayGenreDetails(genreDetails, genreName) {
         movieElement.appendChild(moviePoster);
       }
 
-      movieElement.onclick = function() {
-        console.log(`Clicked on ${detail.title}`);
-      };
+      movieElement.addEventListener('click', function() {
+        let id = detail.id;
+        let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=pelicula`;
+        window.location.href = detalleURL;
+      });
 
       genreDetailsElement.appendChild(movieElement);
     });
@@ -50,9 +52,9 @@ function displayGenreDetails(genreDetails, genreName) {
 }
 
 window.onload = function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const genreId = urlParams.get('genreId');
-  const genreName = urlParams.get('genreName');
+  let urlParams = new URLSearchParams(window.location.search);
+  let genreId = urlParams.get('genreId');
+  let genreName = urlParams.get('genreName');
 
   if (genreId && genreName) {
     fetchGenreDetails(genreId, decodeURIComponent(genreName));
