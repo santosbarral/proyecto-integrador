@@ -1,69 +1,90 @@
-let cargarGenerosPeliculas = async () => {
-  try {
-      let APIKey = "aad4ccb8efdd15fad341576d3301e95e"
-      let tipo = "pelicula"
-      let respuesta = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKey}`);
-      let datos = await respuesta.json();
-      let generos = '';
+const apiKey = '15879dad47bfb7f22061a18ffdf1b790';
+const baseURL = 'https://api.themoviedb.org/3';
 
-      datos.results.slice(0, 19).forEach((genero, index) => {
-          generos += `
-              <li> ${genero.genre} </li>                
-          `;
-      });
+function fetchGenres(endpoint, targetElementId) {
+  fetch(`${baseURL}${endpoint}?api_key=${apiKey}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayGenres(data.genres, targetElementId);
+    })
+    .catch(error => {
+      console.error('Error fetching genres:', error);
+    });
+}
 
-      document.getElementById('listaPeliculas').innerHTML = peliculas;
+function displayGenres(genres, targetElementId) {
+  const targetElement = document.getElementById(targetElementId);
+  targetElement.innerHTML = '';
 
-      let generosDOM = document.querySelectorAll('.genero');
+  genres.forEach(genre => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = genre.name;
+    link.onclick = function() {
+      fetchGenreDetails(genre.id, genre.name);
+    };
+    listItem.appendChild(link);
+    targetElement.appendChild(listItem);
+  });
+}
 
-      generosDOM.forEach(function(genero) {
-          genero.addEventListener('click', function() {
-              let id = genero.getAttribute('data-id');
-              let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
-              window.location.href = detalleURL;
-          });
-      });
+function fetchGenreDetails(genreId, genreName) {
+  fetch(`${baseURL}/discover/movie?api_key=${apiKey}&with_genres=${genreId}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok for ${genreName}.`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayGenreDetails(data.results, genreName);
+    })
+    .catch(error => {
+      console.error(`Error fetching genre details for ${genreName}:`, error);
+      displayGenreDetailsError();
+    });
+}
 
-  } catch (error) {
-      console.log(error);
+function displayGenreDetails(genreDetails, genreName) {
+  const genreDetailsElement = document.getElementById('genreDetails');
+  genreDetailsElement.innerHTML = '';
+
+  if (genreDetails.length === 0) {
+    const errorParagraph = document.createElement('p');
+    errorParagraph.textContent = `No movies found for ${genreName}.`;
+    genreDetailsElement.appendChild(errorParagraph);
+  } else {
+    genreDetails.forEach(detail => {
+      const movieElement = document.createElement('div');
+      const movieTitle = document.createElement('p');
+      movieTitle.textContent = detail.title;
+      movieElement.appendChild(movieTitle);
+
+      if (detail.poster_path) {
+        const moviePoster = document.createElement('img');
+        moviePoster.src = `https://image.tmdb.org/t/p/w200${detail.poster_path}`;
+        movieElement.appendChild(moviePoster);
+      }
+
+      movieElement.onclick = function() {
+        // Handle click on movie/series for more details
+        console.log(`Clicked on ${detail.title}`);
+        // Redirect to movie/series details page or perform any other action
+      };
+
+      genreDetailsElement.appendChild(movieElement);
+    });
   }
 }
 
-
-
-let cargarGenerosSeries = async () => {
-  try {
-      let APIKey = "aad4ccb8efdd15fad341576d3301e95e"
-      let tipo = Serie
-      let respuesta = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKey}`);
-      let datos = await respuesta.json();
-      let generos = '';
-
-      datos.results.slice(0, 19).forEach((genero, index) => {
-          generos += `
-              <li> ${genero.genre} </li>                
-          `;
-      });
-
-      document.getElementById('listaSeries').innerHTML = series;
-
-      let generosDOM = document.querySelectorAll('.genero');
-
-      //seguir mañana
-
-      generosDOM.forEach(function(genero) {
-          genero.addEventListener('click', function() {
-              let id = genero.getAttribute('data-id');
-              let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
-              window.location.href = detalleURL;
-          });
-      });
-
-  } catch (error) {
-      console.log(error);
-  }
-}
-
-
-cargarGenerosPeliculas()
-cargarGenerosSeries()
+// Fetch movie and TV series genres when the page loads
+window.onload = function() {
+  fetchGenres('/genre/movie/list', 'movieGenres');
+  fetchGenres('/genre/tv/list', 'tvGenres');
+};
