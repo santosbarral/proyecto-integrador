@@ -6,9 +6,10 @@ let cargarPeliculas = async () => {
 
         datos.results.slice(0, 12).forEach((pelicula, index) => {
             peliculas += `
-                <div class="pelicula">
+                <div class="pelicula" data-id="${pelicula.id}">
                     <img class="imgB" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
                     <h3 class="titulo">${pelicula.title}</h3>
+                    <p class="id" style="display: none;">${pelicula.id}</p>
                     <p>Fecha de estreno: <br>${pelicula.release_date}</p>
                 </div>
             `;
@@ -16,24 +17,20 @@ let cargarPeliculas = async () => {
 
         document.getElementById('pelPopulares').innerHTML = peliculas;
 
+        let peliculasDOM = document.querySelectorAll('.pelicula');
+
+        peliculasDOM.forEach(function(pelicula) {
+            pelicula.addEventListener('click', function() {
+                let id = pelicula.getAttribute('data-id');
+                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
+                window.location.href = detalleURL;
+            });
+        });
+
     } catch (error) {
         console.log(error);
     }
-    let peliculas = document.querySelectorAll('.pelicula');
-    
-    peliculas.forEach(function(pelicula) {
-    pelicula.addEventListener('click', function() {
-        let id = pelicula.querySelector('.id').innerText;        
-        let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
-        window.location.href = detalleURL;
-    });
-});
-
-
-
 }
-cargarPeliculas();
-
 
 let cargarSeries = async () => {
     try {
@@ -41,12 +38,12 @@ let cargarSeries = async () => {
         let datos = await respuesta.json();
         let series = '';
 
-     
         datos.results.slice(0, 12).forEach((serie, index) => {
             series += `
-                <div class="pelicula">
+                <div class="serie" data-id="${serie.id}">
                     <img class="imgB" src="https://image.tmdb.org/t/p/w500/${serie.poster_path}">
                     <h3 class="titulo">${serie.name}</h3>
+                    <p class="id" style="display: none;">${serie.id}</p>
                     <p>Fecha de estreno: <br>${serie.first_air_date}</p>
                 </div>
             `;
@@ -54,21 +51,20 @@ let cargarSeries = async () => {
 
         document.getElementById('serPopulares').innerHTML = series;
 
+        let seriesDOM = document.querySelectorAll('.serie');
+
+        seriesDOM.forEach(function(serie) {
+            serie.addEventListener('click', function() {
+                let id = serie.getAttribute('data-id');
+                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
+                window.location.href = detalleURL;
+            });
+        });
+
     } catch (error) {
         console.log(error);
     }
-    
-    let peliculas = document.querySelectorAll('.pelicula');
-
-    peliculas.forEach(function(pelicula) {
-        pelicula.addEventListener('click', function() {
-            let titulo = pelicula.querySelector('.titulo').innerText;
-            let detalleURL = `detalle.html?titulo=${encodeURIComponent(titulo)}`;
-            window.location.href = detalleURL;
-        });
-    });
 }
-cargarSeries();
 
 let cargarMejorCalificadas = async () => {
     try {
@@ -78,9 +74,10 @@ let cargarMejorCalificadas = async () => {
 
         datos.results.slice(0, 12).forEach((pelicula, index) => {
             peliculas += `
-                <div class="pelicula">
+                <div class="pelicula" data-id="${pelicula.id}">
                     <img class="imgB" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
                     <h3 class="titulo">${pelicula.title}</h3>
+                    <p class="id" style="display: none;">${pelicula.id}</p>
                     <p>Fecha de estreno: <br>${pelicula.release_date}</p>
                 </div>
             `;
@@ -88,18 +85,21 @@ let cargarMejorCalificadas = async () => {
 
         document.getElementById('mejorCalificado').innerHTML = peliculas;
 
+        let peliculasDOM = document.querySelectorAll('.pelicula');
+
+        peliculasDOM.forEach(function(pelicula) {
+            pelicula.addEventListener('click', function() {
+                let id = pelicula.getAttribute('data-id');
+                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
+                window.location.href = detalleURL;
+            });
+        });
+
     } catch (error) {
         console.log(error);
     }
-    let peliculas = document.querySelectorAll('.pelicula');
-
-    peliculas.forEach(function(pelicula) {
-        pelicula.addEventListener('click', function() {
-            let titulo = pelicula.querySelector('.titulo').innerText;
-            let detalleURL = `detalle.html?titulo=${encodeURIComponent(titulo)}`;
-            window.location.href = detalleURL;
-        });
-    });
 }
 
+cargarPeliculas();
+cargarSeries();
 cargarMejorCalificadas();
