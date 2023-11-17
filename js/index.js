@@ -11,7 +11,7 @@ let cargarPeliculas = async () => {
                     <img class="imgB" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
                     <h3 class="titulo">${pelicula.title}</h3>
                     <p class="id" style="display: none;">${pelicula.id}</p>
-                    <p>Fecha de estreno: <br>${pelicula.release_date}</p>
+                    <p class="hide">Fecha de estreno: <br>${pelicula.release_date}</p>
                 </div>
             `;
         });
@@ -45,8 +45,8 @@ let cargarSeries = async () => {
                 <div class="serie" data-id="${serie.id}">
                     <img class="imgB" src="https://image.tmdb.org/t/p/w500/${serie.poster_path}">
                     <h3 class="titulo">${serie.name}</h3>
-                    <p class="id" style="display: none;">${serie.id}</p>
-                    <p>Fecha de estreno: <br>${serie.first_air_date}</p>
+                    <p class="id hide" style="display: none;">${serie.id}</p>
+                    <p class="hide">Fecha de estreno: <br>${serie.first_air_date}</p>
                 </div>
             `;
         });
@@ -81,7 +81,7 @@ let cargarMejorCalificadas = async () => {
                     <img class="imgB" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
                     <h3 class="titulo">${pelicula.title}</h3>
                     <p class="id" style="display: none;">${pelicula.id}</p>
-                    <p>Fecha de estreno: <br>${pelicula.release_date}</p>
+                    <p class="hide">Fecha de estreno: <br>${pelicula.release_date}</p>
                 </div>
             `;
         });
