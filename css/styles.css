@@ -56,6 +56,18 @@ a{
     
 }
     
+.bot{
+    margin: 0px 25px 15px 0px; 
+    background-color: #eaffc7; 
+    border: black solid; 
+    font-weight: bold;
+    padding: 10px;
+    /*https://javifont.medium.com/gu%C3%ADa-r%C3%A1pida-para-estilos-css-en-botones-4eaca81ad32a */
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;    
+    border-radius: 28px;
+}
+
 .section{
     display: flex;
     flex-wrap: wrap;
@@ -158,6 +170,27 @@ p{
 .card{
     width: px;
 }
+
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  #results div {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  #results img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
 
 @media (max-width: 500px){
     body{
