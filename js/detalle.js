@@ -1,29 +1,41 @@
 let APIKey = "aad4ccb8efdd15fad341576d3301e95e";
 
-let cargarPeliculaDetalle = async (id) => {
+let cargarDetalle = async (id, tipo) => {
     try {
-        let respuesta = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}`);
+        let endpoint = '';
+        
+        if (tipo === 'pelicula') {
+            endpoint = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}`;
+        } else if (tipo === 'serie') {
+            endpoint = `https://api.themoviedb.org/3/tv/${id}?api_key=${APIKey}`;
+        } else {
+            console.error('error en el tipo');
+            return;
+        }
+
+        let respuesta = await fetch(endpoint);
         let datos = await respuesta.json();
         let detalle = '';
 
         detalle += `
             <div class="pelicula">
                 <img class="imgB" src="https://image.tmdb.org/t/p/w500/${datos.poster_path}">
-                <h3 class="titulo">${datos.title}</h3>
-                <p>Fecha de estreno: <br>${datos.release_date}</p>
-                <p>Descripción: <br>${datos.overview}</p>
-                <!-- Puedes mostrar más información según tus necesidades -->
+                <h3 class="tituloDetalle">${datos.title || datos.name}</h3>
+                <p>Fecha de estreno: ${datos.release_date || datos.first_air_date}</p>
+                <p>Duración: ${datos.runtime || datos.episode_run_time} minutos</p>
+                <p>Calificación: ${datos.vote_average} / 10.0</p>
+                <p>Descripción: ${datos.overview}</p>
             </div>
         `;
 
         document.getElementById('detallePelicula').innerHTML = detalle;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
-}
+};
 
 let urlParams = new URLSearchParams(location.search);
-let id_pelicula = urlParams.get('id');
+let id = urlParams.get('id');
+let tipo = urlParams.get('tipo');
 
-cargarPeliculaDetalle(id_pelicula);
-
+cargarDetalle(id, tipo);

@@ -1,5 +1,6 @@
 let cargarPeliculas = async () => {
     try {
+        let tipo = "pelicula"
         let respuesta = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=aad4ccb8efdd15fad341576d3301e95e`);
         let datos = await respuesta.json();
         let peliculas = '';
@@ -22,7 +23,7 @@ let cargarPeliculas = async () => {
         peliculasDOM.forEach(function(pelicula) {
             pelicula.addEventListener('click', function() {
                 let id = pelicula.getAttribute('data-id');
-                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
+                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
                 window.location.href = detalleURL;
             });
         });
@@ -34,6 +35,7 @@ let cargarPeliculas = async () => {
 
 let cargarSeries = async () => {
     try {
+        let tipo = "serie"
         let respuesta = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=aad4ccb8efdd15fad341576d3301e95e`);
         let datos = await respuesta.json();
         let series = '';
@@ -56,7 +58,7 @@ let cargarSeries = async () => {
         seriesDOM.forEach(function(serie) {
             serie.addEventListener('click', function() {
                 let id = serie.getAttribute('data-id');
-                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
+                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
                 window.location.href = detalleURL;
             });
         });
@@ -68,6 +70,7 @@ let cargarSeries = async () => {
 
 let cargarMejorCalificadas = async () => {
     try {
+        let tipo = "pelicula"
         let respuesta = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=aad4ccb8efdd15fad341576d3301e95e`);
         let datos = await respuesta.json();
         let peliculas = '';
@@ -90,7 +93,7 @@ let cargarMejorCalificadas = async () => {
         peliculasDOM.forEach(function(pelicula) {
             pelicula.addEventListener('click', function() {
                 let id = pelicula.getAttribute('data-id');
-                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}`;
+                let detalleURL = `detalle.html?id=${encodeURIComponent(id)}&tipo=${tipo}`;
                 window.location.href = detalleURL;
             });
         });

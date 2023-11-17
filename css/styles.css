@@ -84,6 +84,12 @@ h3{
     border-bottom: 3px solid #c4ff61;
     max-width: 210px;
 }
+
+.tituloDetalle{
+    border-bottom: 3px solid #c4ff61;
+    max-width: 60vw;
+}
+
     
 .titulos{
     margin-bottom: 25px;
