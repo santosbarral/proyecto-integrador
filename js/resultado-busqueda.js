@@ -1,58 +1,53 @@
-let string = location.search
-let data = new URLSearchParams(string);
-let busqueda = data.get("busqueda")
-let criterio = data.get("criterio")
-console.log(criterio);
-
-if (criterio === 'peliculas') {
-    DetallePelicula = `https://api.themoviedb.org/3/search/movie?api_key=aad4ccb8efdd15fad341576d3301e95e&query=${busqueda};`
-} else if (criterio === 'series') {
-    DetallePelicula = `https://api.themoviedb.org/3/search/tv?api_key=aad4ccb8efdd15fad341576d3301e95e&query=${busqueda}`
-} else {
-    DetallePelicula = `https://api.themoviedb.org/3/search/multi?api_key=aad4ccb8efdd15fad341576d3301e95e&query=${busqueda}`
-}
-
-let cargarResultados = async() => {
-    try {
-        let respuesta = await fetch(DetallePelicula);
-        let datos = await respuesta.json();
-        let series = '';
-
-     
-        datos.results.slice(0, 12).forEach((resultado, index) => {
-            resultados += `
-                <div class="pelicula">
-                    <img class="imgB" src="https://image.tmdb.org/t/p/w500/${resultado.poster_path}">
-                    <h3 class="titulo">${resultado.name}</h3>
-                    <p>Fecha de estreno: <br>${resultado.first_air_date}</p>
-                    <p><br>${resultado.overview}</p>
-                </div>
-            `;
-        });
-
-        document.getElementById('resultadoBusqueda').innerHTML = resultados;
-
-    } catch(error) {
-        console.log(error);
-    }
-}
-cargarResultados();
+let API_KEY = '15879dad47bfb7f22061a18ffdf1b790'; 
+      let BASE_URL = 'https://api.themoviedb.org/3/search/movie';
+  
+      let searchBox = document.getElementById('search-box');
+      let resultsContainer = document.getElementById('results');
+  
+      searchBox.addEventListener('keyup', function(event) {
+        let searchTerm = event.target.value;
+  
+        if (searchTerm.length > 2) {
+          searchMovies(searchTerm);
+        } else {
+          resultsContainer.innerHTML = ''; // Limpiar resultados si la búsqueda es corta
+        }
+      });
+  
+      async function searchMovies(query) {
+        let url = `${BASE_URL}?api_key=${API_KEY}&query=${query}`;
         
- //let imagen = document.querySelector('#imagen');
-        //imagen.src = "https://image.tmdb.org/t/p/w500/" + data.poster_path
-
-        //let titulo = document.querySelector('#Titulo');
-        //titulo.innerHTML = data.title
-
-        //let sinopsis = document.querySelector('#sinopsis');
-        //sinopsis.innerHTML = data.overview
-
-        //fechaestreno = document.querySelector('#fechaestrenoid');
-        //fechaestreno.innerHTML = 'Fecha de estreno:' + ' ' + data.release_date
-
-        //valoracion = document.querySelector('#valoracion');
-        //valoracion.innerHTML = 'Valoración: ' + data.vote_average + ' / 10'
-
-        //for (let index = 0; index < data.genres.length; index++) {
-
-
+        try {
+          let response = await fetch(url);
+          let data = await response.json();
+          displayResults(data.results);
+        } catch (error) {
+          console.error('Error al obtener datos:', error);
+        }
+      }
+  
+      function displayResults(movies) {
+        resultsContainer.innerHTML = '';
+  
+        if (movies.length === 0) {
+          resultsContainer.innerHTML = '<p>No se encontraron películas</p>';
+          return;
+        }
+  
+        movies.forEach(movie => {
+          let movieTitle = movie.title;
+          let movieReleaseDate = movie.release_date || 'Fecha de lanzamiento no disponible';
+          let movieOverview = movie.overview || 'Descripción no disponible';
+          let moviePoster = movie.poster_path ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}` : 'https://via.placeholder.com/150';
+  
+          let movieElement = `
+            <div>
+              <img src="${moviePoster}" alt="${movieTitle}">
+              <h3>${movieTitle}</h3>
+              <p><strong>Fecha de lanzamiento:</strong> ${movieReleaseDate}</p>
+              <p>${movieOverview}</p>
+            </div>
+          `;
+          resultsContainer.innerHTML += movieElement;
+        });
+      }

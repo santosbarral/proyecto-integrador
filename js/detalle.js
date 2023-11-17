@@ -1,31 +1,41 @@
 let APIKey = "aad4ccb8efdd15fad341576d3301e95e";
-let urlparams = new URLSearchParams(location.search);
-let id_pelicula = urlparams.get('id');
-console.log(id_pelicula);
 
-let cargarPeliculas = async () => {
+let cargarDetalle = async (id, tipo) => {
     try {
+        let endpoint = '';
         
-        let respuesta = await fetch(`https://api.themoviedb.org/3/movie/${id_pelicula}?api_key=${APIKey}`);
+        if (tipo === 'pelicula') {
+            endpoint = `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}`;
+        } else if (tipo === 'serie') {
+            endpoint = `https://api.themoviedb.org/3/tv/${id}?api_key=${APIKey}`;
+        } else {
+            console.error('error en el tipo');
+            return;
+        }
+
+        let respuesta = await fetch(endpoint);
         let datos = await respuesta.json();
-        let peliculas = '';
+        let detalle = '';
 
-        datos.results.slice(0, 1).forEach((pelicula, index) => {
-            peliculas += `
-                <div class="pelicula">
-                    <img class="imgB" src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}">
-                    <h3 class="titulo">${pelicula.title}</h3>
-                    <p>Fecha de estreno: <br>${pelicula.release_date}</p>
-                </div>
-            `;
-        });
+        detalle += `
+            <div class="pelicula">
+                <img class="imgB" src="https://image.tmdb.org/t/p/w500/${datos.poster_path}">
+                <h3 class="tituloDetalle">${datos.title || datos.name}</h3>
+                <p>Fecha de estreno: ${datos.release_date || datos.first_air_date}</p>
+                <p>Duración: ${datos.runtime || datos.episode_run_time} minutos</p>
+                <p>Calificación: ${datos.vote_average} / 10.0</p>
+                <p>Descripción: ${datos.overview}</p>
+            </div>
+        `;
 
-        document.getElementById('detallePelicula').innerHTML = peliculas;
-
+        document.getElementById('detallePelicula').innerHTML = detalle;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
+};
 
-}
+let urlParams = new URLSearchParams(location.search);
+let id = urlParams.get('id');
+let tipo = urlParams.get('tipo');
 
-cargarPeliculas();
+cargarDetalle(id, tipo);

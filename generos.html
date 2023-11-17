@@ -1,93 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado busqueda</title>
-
-    <link rel="stylesheet" href="./css/styles.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>TMDb Genres</title>
 </head>
 <body>
-
-    <header>
-        <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px" class="logoResp"> </div>
-        
-        <nav class="nav">
-            <li class="liNav">
-            <ul><a href="index.html">Home</a></ul>
-            <ul><a href="favoritos.html">Favoritos</a></ul>
-            <ul><a href="generos.html">GÉNEROS</a></ul>
-            <ul><a href="ver-generos.html">Ver géneros</a></ul>
-            <ul><a href="novedades.html">Novedades</a></ul>
-        </li>
-        </nav>
-    
-        <form action="resultado-busqueda.html" class="form">
-            <input type="search">
-            <button>Buscar</button>
-        </form>
-    </header>
-
-<main>
-    <section id="detallesGenero"></section>
-    <section class="justify">
-
-        <div class="listaGeneros">
-            <h2 class="lineaVerde">Películas</h2>
-            <ul>
-                <li><a href="ver-generos.html" class="aGeneros">Acción</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Anime</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Argentinas</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Ciencia ficción</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Comedia</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">De Hollywood</a></li>                    <li><a href="ver-generos.html" class="aGeneros">Documentales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Dramas</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Internacionales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Musicales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Policiales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Romances</a></li>                    <li><a href="ver-generos.html" class="aGeneros">Terror</a></li>
-            </ul>
-        </div>
-
-       <div class="listaGeneros">
-            <h2 class="lineaVerde">Series</h2>
-            <ul>
-                <li><a href="ver-generos.html" class="aGeneros">Acción</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Anime</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Argentinas</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Ciencia ficción</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Comedia</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">De Hollywood</a></li>                    <li><a href="ver-generos.html" class="aGeneros">Documentales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Dramas</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Internacionales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Musicales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Policiales</a></li>
-                <li><a href="ver-generos.html" class="aGeneros">Romances</a></li>                    <li><a href="ver-generos.html" class="aGeneros">Terror</a></li>
-            </ul>
-        </div>
-
-    </section>
-
-</main>
-
-<footer>
-    <section class="nombresFooter">
-        <div class="foot"><p class="p">Bautista Lucini </p></div>
-        <div  class="foot"><p class="p">Santos Barral </p></div>
-        <div  class="foot"><p class="p">Federico Basavilbaso </p></div>
-    </section>
-
-    <img src="./img/blue_long.svg" alt="logo TMDB" class="logoTMDB">
-
-
-</footer>
-
-<script src="./js/index.js"></script>
-
-<script src="./js/generos.js"></script> 
-
+  <h1>Genres for Movies</h1>
+  <ul id="movieGenres"></ul>
+  
+  <h1>Genres for TV Series</h1>
+  <ul id="tvGenres"></ul>
+  
+  <h1>Selected Genre</h1>
+  <div id="selectedGenre"></div>
+  
+  <h1>Genre Details</h1>
+  <div id="genreDetails"></div>
+  
+  <script src="js/generos.js"></script>
 </body>
 </html>
