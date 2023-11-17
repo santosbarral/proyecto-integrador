@@ -10,7 +10,7 @@ let API_KEY = '15879dad47bfb7f22061a18ffdf1b790';
         if (searchTerm.length > 2) {
           searchMovies(searchTerm);
         } else {
-          resultsContainer.innerHTML = ''; // Limpiar resultados si la búsqueda es corta
+          resultsContainer.innerHTML = ''; 
         }
       });
   
@@ -41,11 +41,13 @@ let API_KEY = '15879dad47bfb7f22061a18ffdf1b790';
           let moviePoster = movie.poster_path ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}` : 'https://via.placeholder.com/150';
   
           let movieElement = `
-            <div>
-              <img src="${moviePoster}" alt="${movieTitle}">
-              <h3>${movieTitle}</h3>
-              <p><strong>Fecha de lanzamiento:</strong> ${movieReleaseDate}</p>
-              <p>${movieOverview}</p>
+            <div class="cajaBusqueda">
+              <img src="${moviePoster}" alt="${movieTitle}" class="imgB">
+              <h3 class="titulo">${movieTitle}</h3>
+              <p class="hide"><strong>Fecha de lanzamiento:</strong> ${movieReleaseDate}</p>
+              <p>Duración: ${movie} minutos</p>
+              <p class="hide">Descripción: ${movieOverview}</p>
+
             </div>
           `;
           resultsContainer.innerHTML += movieElement;
