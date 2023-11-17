@@ -51,8 +51,3 @@ window.onload = function() {
   fetchMovieGenres();
   fetchTVGenres();
 };
-
-then(data => {
-  console.log(data); // Agregar esta línea para verificar la estructura de los datos recibidos
-  displayGenres(data.genres, 'movieGenres');
-})
