@@ -11,59 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header>
-        <div class="logo"> <img src="./img/logo.png" alt="logo" height="100px" class="logoResp"> </div>
-        
-        <nav class="nav">
-            <li class="liNav">
-            <ul><a href="index.html">Home</a></ul>
-            <ul><a href="favoritos.html">Favoritos</a></ul>
-            <ul><a href="generos.html">Géneros</a></ul>
-            <ul><a href="ver-generos.html">Ver géneros</a></ul>
-            <ul><a href="novedades.html">Novedades</a></ul>
-        </li>
-        </nav>
-    
-        <form action="resultado-busqueda.html" method="get" class="form busqueda">
-            <input type="text" name="busqueda" value="" placeholder="¿Qué ver hoy?" size="28">
-            <select id="criterio" name="criterio" >
-                <option value="all">All</option>
-                <option value="peliculas">Películas</option>
-                <option value="series">Series</option>
-              </select>
-            <button type="submit"> Buscar </button>
-        </form>
-
-    </header>
-
-<main>
-
-<h2>Resultados de busqueda para `${busqueda}`:</h2>
-
-
-<section id="resultadoBusqueda">
-
-
-</section>
-
-
-</main>
-
-<footer>
-    <section class="nombresFooter">
-        <div class="foot"><p class="p">Bautista Lucini </p></div>
-        <div  class="foot"><p class="p">Santos Barral </p></div>
-        <div  class="foot"><p class="p">Federico Basavilbaso </p></div>
-    </section>
-
-    <img src="./img/blue_long.svg" alt="logo TMDB" class="logoTMDB">
-
-
-</footer>
-
-<script src="./js/resultado-busqueda.js"></script>
-
-<script src="./js/resultado-busqueda.js"></script>
+    <input type="text" id="search-box" placeholder="Buscar película...">
+    <div id="results"></div>
+  <script src="js/resultado-busqueda.js"></script>
 </body>
 </html>
