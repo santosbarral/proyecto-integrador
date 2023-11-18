@@ -1,7 +1,4 @@
-// favoritos.js
-
-// Función para mostrar detalles de la película al hacer clic en la imagen
-const mostrarDetalles = (favorito) => {
+let mostrarDetalles = (favorito) => {
     let detalle = `
         <div class="pelicula">
             <img class="imgB" src="https://image.tmdb.org/t/p/w500/${favorito.poster_path}">
@@ -17,8 +14,7 @@ const mostrarDetalles = (favorito) => {
     document.getElementById('detallePelicula').innerHTML = detalle;
 };
 
-// Función para alternar entre agregar/eliminar una película de favoritos
-const toggleFavorito = (favorito) => {
+let toggleFavorito = (favorito) => {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     const index = favoritos.findIndex(fav => fav.id === favorito.id);
 
@@ -29,20 +25,19 @@ const toggleFavorito = (favorito) => {
     }
 
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
-    mostrarFavoritos(); // Actualizar la lista de favoritos después de agregar/eliminar
+    mostrarFavoritos(); 
 };
 
-// Función para eliminar una película de favoritos
-const eliminarDeFavoritos = (id) => {
+
+let eliminarDeFavoritos = (id) => {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     let nuevosFavoritos = favoritos.filter(favorito => favorito.id !== id);
 
     localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
-    mostrarFavoritos(); // Actualizar la lista de favoritos después de eliminar
+    mostrarFavoritos(); 
 };
 
-// Función para mostrar películas favoritas
-const mostrarFavoritos = () => {
+let mostrarFavoritos = () => {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     let listaFavoritosHTML = '';
 
@@ -61,4 +56,4 @@ const mostrarFavoritos = () => {
     document.getElementById('favoritosContainer').innerHTML = listaFavoritosHTML;
 };
 
-mostrarFavoritos(); // Mostrar favoritos al cargar la página
+mostrarFavoritos(); 
