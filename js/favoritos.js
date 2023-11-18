@@ -16,7 +16,7 @@ let mostrarDetalles = (favorito) => {
 
 let toggleFavorito = (favorito) => {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    const index = favoritos.findIndex(fav => fav.id === favorito.id);
+    let index = favoritos.findIndex(fav => fav.id === favorito.id);
 
     if (index !== -1) {
         favoritos.splice(index, 1);

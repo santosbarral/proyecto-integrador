@@ -59,7 +59,6 @@ main{
     border: black solid; 
     font-weight: bold;
     padding: 10px;
-    /*https://javifont.medium.com/gu%C3%ADa-r%C3%A1pida-para-estilos-css-en-botones-4eaca81ad32a */
     -webkit-border-radius: 28;
     -moz-border-radius: 28;    
     border-radius: 28px;

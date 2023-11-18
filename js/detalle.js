@@ -1,5 +1,3 @@
-// detalles.js
-
 let APIKey = "aad4ccb8efdd15fad341576d3301e95e";
 
 let cargarDetalle = async (id, tipo) => {
@@ -34,11 +32,11 @@ let cargarDetalle = async (id, tipo) => {
 
         let botonAgregarFavorito = document.createElement('button');
         botonAgregarFavorito.textContent = 'Agregar a favoritos';
-        botonAgregarFavorito.classList.add('botonFavorito'); // Añade una clase para el estilo si es necesario
+        botonAgregarFavorito.classList.add('botonFavorito'); 
 
         botonAgregarFavorito.addEventListener('click', () => {
             agregarAFavoritos(datos);
-            alert('Película agregada a favoritos'); // Muestra un mensaje para confirmar la acción
+            alert('Película agregada a favoritos'); 
         });
 
         document.getElementById('detallePelicula').appendChild(botonAgregarFavorito);
@@ -54,8 +52,7 @@ let tipo = urlParams.get('tipo');
 
 cargarDetalle(id, tipo);
 
-// Función para agregar una película a favoritos
-const agregarAFavoritos = (datos) => {
+let agregarAFavoritos = (datos) => {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     favoritos.push(datos);
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
